@@ -6,7 +6,7 @@
 </style>
 
 <nav class="navbar navbar-light bg-light mb-5 d-flex justify-content-space-between">
-    <h1 class="ms-3">Hotels</h1>
+    <h1 class="ms-3">Places</h1>
     <a class="btn-danger me-5 p-2" href="/tourist" style="text-decoration: none;">Back</a>
 </nav>
 
@@ -23,7 +23,7 @@
                     <h6>Pirce per head:{{Price}}</h6>
                     <h6>Guid Number :{{phone}}</h6>
                     <h6>Guid Name:{{guidName}}</h6>
-                    <a href="">Watsapp</a>
+                    <a href="//api.whatsapp.com/send?phone={{phone}}&text=Hai Guid i am looking for your help to visit {{place}}" class="btn btn-success">Whatsapp Alert</a>
                     {{!-- <h6>minimum Price from <b>₹{{minPrice}}</b></h6> --}}
                 </div>
             </div>
@@ -33,4 +33,6 @@
         <center>
             <h1 style="color:white; transform:scale(1.2);transition:all 0.5s ease;">No Place where added !!!!</h1>
         </center>
-        {{/if
+        {{/if}}
+    </div>
+</div>
