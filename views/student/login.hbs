@@ -1,0 +1,21 @@
+<link rel='stylesheet' href='/stylesheets/user.css' />
+<style>
+  body {
+    background: linear-gradient(90deg, #9D50BB, #6E48AA);
+  }
+</style>
+
+<div class="login-page">
+  <div class="form">
+    <div>
+      <h2 class="title">Login</h2>
+    </div>
+    <form class="login-form" action="/login" method="post">
+      <input type="email" placeholder="email" name="email" />
+      <input type="password" placeholder="password" name="password" />
+      <button type="submit">Login</button>
+      <p class="text-secondary mt-3">New User ? <a href="/signup" class="font-weight-bold"
+          style="text-decoration: none;">Signup here</a></p>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<link rel='stylesheet' href='/stylesheets/user.css' />
+<style>
+    body {
+        background: linear-gradient(90deg, #F2994A, #F2C94C);
+    }
+</style>
+
+<div class="login-page">
+    <div class="form">
+        <div>
+            <h2 class="title" style="color: #F2994A;;">Register</h2>
+        </div>
+        <form class="login-form" action="/tourist/signup" method="post">
+            <input type="text" name="username" placeholder="Username" required />
+            <input type="password" name="password" placeholder="Password" required />
+            <input type="email" name="email" placeholder="Email Id" required />
+            <input type="number" name="phone" placeholder="Phone No" required />
+
+            <button type="submit" style="background: #F2994A;;">Register</button>
+            <p class="text-secondary mt-3">Already have account <a href="/tourist/login" class="font-weight-bold"
+                    style="text-decoration: none;">Login</a></p>
+        </form>
+    </div>
+</div>

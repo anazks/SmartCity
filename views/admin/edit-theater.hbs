@@ -1,0 +1,35 @@
+<link rel='stylesheet' href='/stylesheets/user.css' />
+<style>
+    body {
+        background: linear-gradient(90deg, #bdc3c7, #2c3e50);
+    }
+</style>
+
+<div class="login-page" style="width: 80vw;">
+    <div class="form">
+        <div>
+            <h2 class="title" style="color: #2c3e50;">Edit Theater Details</h2>
+        </div>
+        <form class="login-form" action="/admin/edit-theater/{{theater._id}}" method="post"
+            enctype="multipart/form-data">
+            <input type="text" name="theaterName" placeholder="theater Name" value="{{theater.theaterName}}" required />
+            <textarea name="description" placeholder="Short description about theater" id="" cols="10" rows="5"
+                required> {{theater.description}}"</textarea>
+            <input type="text" name="showTimes" placeholder="Enter Show timings" value="{{theater.showTimes}}"
+                required />
+            <input type="number" name="totalSeats" placeholder="Enter Total seats Capacity"
+                value="{{theater.totalSeats}}" required />
+            <input type="number" name="minPrice" placeholder="Minimum Ticket price" value="{{theater.minPrice}}"
+                required />
+            <input type="text" name="place" placeholder="place" value="{{theater.place}}" required />
+            <input type="text" name="phone" placeholder="Phone No" value="{{theater.phone}}" required />
+            <input type="email" name="email" placeholder="Email Id" value="{{theater.email}}" required />
+            <label for="">Update Theater Image</label>
+            <img src="/images/theater/{{theater._id}}.jpg" width="100" height="100" alt="">
+            <input type="file" accept="" name="image">
+
+            <button type="submit" style="background: #00c3ff;">SUBMIT</button>
+            <a href="/admin/view-all-industries" class="font-weight-bold" style="text-decoration: none;">Back</a>
+        </form>
+    </div>
+</div>

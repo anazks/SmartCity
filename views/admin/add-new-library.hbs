@@ -1,0 +1,28 @@
+<link rel='stylesheet' href='/stylesheets/user.css' />
+<style>
+    body {
+        background: linear-gradient(90deg, #bdc3c7, #2c3e50);
+    }
+</style>
+
+<div class="login-page" style="width: 80vw;">
+    <div class="form">
+        <div>
+            <h2 class="title" style="color: #2c3e50;">Add New library</h2>
+        </div>
+        <form class="login-form" action="/admin/add-library" method="post" enctype="multipart/form-data">
+            <input type="text" name="libraryName" placeholder="library Name" required />
+            <textarea name="description" placeholder="Short description about library" id="" cols="10" rows="5"
+                required></textarea>
+            <input type="text" name="place" placeholder="place" required />
+            <input type="number" name="phone" placeholder="Phone No" required />
+            <input type="email" name="email" placeholder="Email Id" required />
+            <input type="text" name="time" placeholder="Open timings" required />
+            <label for="">Upload library Image</label>
+            <input type="file" accept="" name="image" required>
+
+            <button type="submit" style="background: #00c3ff;">SUBMIT</button>
+            <a href="/admin" class="font-weight-bold" style="text-decoration: none;">Back</a>
+        </form>
+    </div>
+</div>

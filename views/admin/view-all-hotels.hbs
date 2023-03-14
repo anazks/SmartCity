@@ -1,0 +1,48 @@
+<link rel='stylesheet' href='/stylesheets/user.css' />
+<style>
+    body {
+        background: linear-gradient(90deg, #bdc3c7, #2c3e50);
+    }
+</style>
+
+<div class="login-page" style="width: 80vw">
+    <div class="form">
+        <div style="display: flex;justify-content: space-between;margin-bottom:15px">
+            <a href="/admin"><button style="background: rgb(206, 16, 16);"> Back</button></a>
+            <h2 class="title" style="color: #2c3e50;"> Hotels List</h2>
+            <a href="/admin/add-job"><button style="background: rgb(29, 173, 60);"> Add New job</button></a>
+        </div>
+        <table id="main_table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Place</th>
+                    <th>Minimum Price</th>
+                    <th>operations</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each hotels}}
+                <tr>
+                    <td>{{hotelName}}</td>
+                    <td>{{email}}</td>
+                    <td>{{place}}</td>
+                    <td>₹{{minPrice}}</td>
+                    <td><a href="/admin/delete-hotel/{{_id}}"
+                            onclick="return confirm('Are you sure you want to delete this Hotel?');"><button class="btn"
+                                style="background: red;">delete</button></a>
+                        <a href="/admin/edit-hotel/{{_id}}"><button class="btn"
+                                style="background: rgb(67, 109, 199);">Edit</button></a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    $(function () {
+        $("#main_table").dataTable();
+    });
+</script>

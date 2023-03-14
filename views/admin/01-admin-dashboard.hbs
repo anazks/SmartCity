@@ -1,0 +1,217 @@
+<link rel="stylesheet" href="/stylesheets/admin.css" />
+<!--sidebar-->
+<div class="side-menu">
+    <div class="brand-name">
+        <a href="/admin">
+            <h1>DASHBOARD</h1>
+        </a>
+    </div>
+    <ul>
+        <!--icon is there before text-->
+          <li><a href="/admin/get-Tourist-add-page"> <i class="fa-solid fa-bus"></i>&nbsp;
+                <span>Tourist</span>
+            </a></li>
+        <li><a href="/admin/view-all-students"> <i class="fa-solid fa-hotel"></i>&nbsp; <span>Students</span> </a></li>
+        <li><a href="/admin/view-all-job-seekers"> <i class="fa-solid fa-hotel"></i>&nbsp; <span>Job Seekers</span> </a>
+        </li>
+        <li><a href="/admin/view-all-tourists"> <i class="fa-solid fa-hotel"></i>&nbsp; <span>Tourists</span> </a></li>
+        <li><a href="/admin/view-all-hotels"> <i class="fa-solid fa-hotel"></i>&nbsp; <span>Hotels</span> </a></li>
+        <li><a href="/admin/view-all-hospitals"> <i class="fas fa-hospital"></i>&nbsp; <span>hospitals</span> </a></li>
+        <li><a href="/admin/view-all-colleges"><i class="fa-solid fa-building-columns"></i>&nbsp; <span>Colleges</span>
+            </a></li>
+        <li><a href="/admin/view-all-industries"><i class="fa-solid fa-industry"></i>&nbsp;
+                <span>Industries</span> </a></li>
+        <li><a href="/admin/view-all-jobs"> <i class="fas fa-users"></i>&nbsp; <span>Jobs</span> </a></li>
+        <li><a href="/admin/view-all-libraries"> <i class="fa-solid fa-book-open"></i>&nbsp;
+                <span>libraries</span> </a></li>
+        <li><a href="/admin/view-all-theaters"> <i class="fa-solid fa-film"></i>&nbsp;
+                <span>Theaters</span> </a></li>
+        <li><a href="/admin/view-all-travel-agencies"> <i class="fa-solid fa-bus"></i>&nbsp;
+                <span>Travel Agencies</span>
+            </a></li>
+           
+
+    </ul>
+</div>
+<!--top navbar-->
+<div class="container">
+    <div class="header">
+        <div class="nav">
+            <div class="search">
+
+            </div>
+            <div class="user">
+                <!--<a href="#" class="btn">Logout</a>-->
+                <div class="img-case">
+                    <i class="far fa-user" style="font-size: 30px;"></i>
+                    <a href="/admin/logout" style="margin-left:10px;color:white;background: red;padding:5px">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="cards">
+            <div class="card">
+                <div class="box">
+                    <h1>{{count.student}}</h1>
+                    <h3>All Students</h3>
+                </div>
+                <div class="icon-case">
+                    <i class="fa-solid fa-user-graduate"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <h1>{{count.tourist}}</h1>
+                    <h3>Tourists</h3>
+                </div>
+                <div class="icon-case">
+                    <i class="fa-solid fa-people-pulling"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <h1>{{count.jobSeeker}}</h1>
+                    <h3>Job Seekers</h3>
+                </div>
+                <div class="icon-case">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <h1>{{count.hotel}}</h1>
+                    <h3>Hotels</h3>
+                </div>
+                <div class="icon-case">
+                    <i class="fa-solid fa-hotel"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <h1>{{count.hospital}}</h1>
+                    <h3>Hospitals</h3>
+                </div>
+                <div class="icon-case">
+                    <i class="fas fa-hospital"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <h1>{{count.college}}</h1>
+                    <h3>Colleges</h3>
+                </div>
+                <div class="icon-case">
+                    <i class="fa-solid fa-building-columns"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <h1>{{count.library}}</h1>
+                    <h3>Libraries</h3>
+                </div>
+                <div class="icon-case">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <h1>{{count.job}}</h1>
+                    <h3>Jobs</h3>
+                </div>
+                <div class="icon-case">
+                    <i class="fas fa-users"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <h1>{{count.theater}}</h1>
+                    <h3>Theaters</h3>
+                </div>
+                <div class="icon-case">
+                    <i class="fa-solid fa-film"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <h1>{{count.industry}}</h1>
+                    <h3>Industries</h3>
+                </div>
+                <div class="icon-case">
+                    <i class="fa-solid fa-industry"></i>
+                </div>
+            </div>
+
+        </div>
+        {{!-- <div class="content-2">
+
+            <div class="staff-details">
+                <div class="title">
+                    <h2>Staffs</h2>
+                    <a href="#" class="btn">View All</a>
+                </div>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Position</th>
+                        <th>Email</th>
+                    </tr>
+                    <tr>
+                        <td>Parvathy GS</td>
+                        <td>Computer</td>
+                        <td>Lecturer</td>
+                        <td>parvathygs@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td>Parvathy GS</td>
+                        <td>Computer</td>
+                        <td>Lecturer</td>
+                        <td>parvathygs@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td>Parvathy GS</td>
+                        <td>Computer</td>
+                        <td>Lecturer</td>
+                        <td>parvathygs@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td>Parvathy GS</td>
+                        <td>Computer</td>
+                        <td>Lecturer</td>
+                        <td>parvathygs@gmail.com</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="departments">
+                <div class="title">
+                    <h2>Departments</h2>
+                    <a href="#" class="btn">View All</a>
+                </div>
+                <table>
+                    <tr>
+                        <th>Dept ID</th>
+                        <th>Name</th>
+                    </tr>
+                    <tr>
+                        <td>CT</td>
+                        <td>Computer Engineering</td>
+                    </tr>
+                    <tr>
+                        <td>CT</td>
+                        <td>Computer Engineering</td>
+                    </tr>
+                    <tr>
+                        <td>CT</td>
+                        <td>Computer Engineering</td>
+                    </tr>
+                    <tr>
+                        <td>CT</td>
+                        <td>Computer Engineering</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div> --}}
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<link rel='stylesheet' href='/stylesheets/user.css' />
+<style>
+  body {
+    background: linear-gradient(to right, #9D50BB, #6E48AA);
+  }
+</style>
+
+<nav class="navbar navbar-light bg-light mb-5 d-flex justify-content-space-between">
+  <h1 class="ms-3">Colleges</h1>
+  <a class="btn-danger me-5 p-2" href="/" style="text-decoration: none;">Back</a>
+</nav>
+
+<div class="container library">
+  <div class="row">
+    {{#if colleges}}
+    {{#each colleges}}
+    <div class="col-4">
+      <div class="card p-2">
+        <img src="/images/college/{{_id}}.jpg" class="image">
+        <div class="container">
+          <h4><b>{{collegeName}}</b></h4>
+          <h6>{{description}} </h6>
+          <h6>{{place}}</h6>
+          <h6>{{phone}}</h6>
+          <h6>{{email}}</h6>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+    {{else}}
+    <center>
+      <h1 style="color:white; transform:scale(1.2);transition:all 0.5s ease;">No Colleges Found !!!!</h1>
+    </center>
+    {{/if}}
+  </div>
+</div>

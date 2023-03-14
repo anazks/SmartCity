@@ -1,0 +1,30 @@
+<link rel='stylesheet' href='/stylesheets/user.css' />
+<style>
+    body {
+        background: linear-gradient(90deg, #bdc3c7, #2c3e50);
+    }
+</style>
+
+<div class="login-page">
+    <div class="form">
+        <div>
+            <h2 class="title" style="color: #2c3e50;">Edit Hotel Details</h2>
+        </div>
+        <form class="login-form" action="/admin/edit-hotel/{{hotel._id}}" method="post" enctype="multipart/form-data">
+            <input type="text" name="hotelName" placeholder="Hotel Name" value="{{hotel.hotelName}}" required />
+            <textarea name="description" placeholder="Short description about hotel" id="" cols="10"
+                rows="5"> {{hotel.description}}"</textarea>
+            <input type="text" name="place" placeholder="place" value="{{hotel.place}}" required />
+            <input type="text" name="phone" placeholder="Phone No" value="{{hotel.phone}}" required />
+            <input type="email" name="email" placeholder="Email Id" value="{{hotel.email}}" required />
+
+            <input type="text" name="minPrice" placeholder="Minimum price" value="{{hotel.minPrice}}" required />
+            <label for="">Update Hotel Image</label>
+            <img src="/images/hotels/{{hotel._id}}.jpg" width="100" height="100" alt="">
+            <input type="file" accept="" name="image">
+
+            <button type="submit" style="background: #00c3ff;">SUBMIT</button>
+            <a href="/admin" class="font-weight-bold" style="text-decoration: none;">Back</a>
+        </form>
+    </div>
+</div>

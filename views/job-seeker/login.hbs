@@ -1,0 +1,21 @@
+<link rel='stylesheet' href='/stylesheets/user.css' />
+<style>
+    body {
+        background: linear-gradient(90deg, #0cebeb, #20e3b2, #29ffc6);
+    }
+</style>
+
+<div class="login-page">
+    <div class="form">
+        <div>
+            <h2 class="title" style="color: #3ba188;">Job Seeker Login</h2>
+        </div>
+        <form class="login-form" action="/job-seeker/login" method="post">
+            <input type="email" placeholder="email" name="email" />
+            <input type="password" placeholder="password" name="password" />
+            <button type="submit" style="background: #3ba188;">Login</button>
+            <p class="text-secondary mt-3">New User ? <a href="/job-seeker/signup" class="font-weight-bold"
+                    style="text-decoration: none;">Signup here</a></p>
+        </form>
+    </div>
+</div>

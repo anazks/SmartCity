@@ -1,0 +1,28 @@
+<link rel='stylesheet' href='/stylesheets/user.css' />
+<style>
+    body {
+        background: linear-gradient(90deg, #bdc3c7, #2c3e50);
+    }
+</style>
+
+<div class="login-page" style="width: 80vw;">
+    <div class="form">
+        <div>
+            <h2 class="title" style="color: #2c3e50;">Add New Job</h2>
+        </div>
+        <form class="login-form" action="/admin/add-job" method="post" enctype="multipart/form-data">
+            <input type="text" name="jobName" placeholder="Job Name" required />
+            <textarea name="description" placeholder="Short description about job" id="" cols="10" rows="5"
+                required></textarea>
+            <input type="text" name="place" placeholder="place" required />
+            <input type="text" name="companyName" placeholder="Name of the Company" required />
+            <input type="text" name="salary" placeholder="salary (per annum)" required />
+            <input type="text" name="vacancy" placeholder="vacancies" required />
+            <input type="number" name="phone" placeholder="Phone No" required />
+            <input type="email" name="email" placeholder="Enquiry Email Id" required />
+
+            <button type="submit" style="background: #00c3ff;">SUBMIT</button>
+            <a href="/admin/view-all-industries" class="font-weight-bold" style="text-decoration: none;">Back</a>
+        </form>
+    </div>
+</div>

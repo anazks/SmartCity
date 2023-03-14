@@ -1,0 +1,139 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(to right,#F2994A,#F2C94C);">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="font-size: 33px;">Welcome {{tourist.username}}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/tourist/search-hospitals">Hospitals</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/tourist/search-hotels">Hotels</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/tourist/search-theaters">Theaters</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/tourist/search-libraries">Libraries</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/tourist/get-touristPlace">Tourist Places</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <form action="/tourist/search" method="post">
+                    <div class="input-group">
+                        <select class="form-control me-3" name="category" id="" required>
+                            <option value="">Select category</option>
+                            <option value="hotels">Hotels</option>
+                            <option value="theaters">Theaters</option>
+                            <option value="hospitals">Hospitals</option>
+                            <option value="libraries">Libraries</option>
+                        </select>
+                        <input type="text" class="form-control" name="content" placeholder="Search here" required>
+                        <div class="input-group-append">
+                            <button class="btn btn-light me-3" type="submit">
+                                <i class="fa fa-search text-success"></i>
+                            </button>
+                        </div>
+                    </div>
+            </div>
+            <a href="/tourist/logout" class="btn btn-outline-danger">Logout</a>
+            </form>
+        </div>
+    </div>
+</nav>
+
+{{!-- carousel --}}
+<div class="p-5">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"
+        style="max-width: 100vw;max-height:80vh;overflow:hidden">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="object-fit: cover;width:100%;height:100%">
+                <img src="/images/kochi1.jpg" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item" style="object-fit: cover;width:100%;height:100%">
+                <img src="/images/kochi2.jpg" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item" style="object-fit: cover;width:100%;height:100%">
+                <img src="/images/kochi3.jpg" class="d-block w-100" alt="">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+{{!-- about us --}}
+
+<section id="about">
+    <div class="container d-flex flex-column justify-content-space-around" style="height: 70vh;">
+        <h2 class="title mt-5 mb-5" style="text-align: center;">
+            About Our City
+        </h2>
+        <p class="about-para">
+            Called the "Queen of the Arabian Sea", Kochi was an important spice trading centre on the west coast of
+            India from the 14th century onward, and maintained a trade network with Arab merchants from the pre-Islamic
+            era. In 1505, the Portuguese established trading ports in Cochin. There are still buildings like the Old
+            Harbour House from this period, some of which have been renovated in more recent times. The Kingdom of
+            Cochin allied with the Ming Dynasty, Portuguese, and Dutch and became a princely state of the British. Kochi
+            ranks first in the total number of international and domestic tourist arrivals in Kerala.[14][15] The city
+            was ranked the sixth best tourist destination in India according to a survey conducted by the Nielsen
+            Company on behalf of the Outlook Traveller magazine.[16] In October 2019, Kochi was ranked seventh in Lonely
+            Planet's list of top 10 cities in the world to visit in 2020.[17][18] Kochi was one of the 28 Indian cities
+            among the emerging 440 global cities that will contribute 50% of the world GDP by 2025, in a 2011 study done
+            by the McKinsey Global Institute.
+        </p>
+    </div>
+</section>
+<section id="map" style="background: linear-gradient(to right,#F2994A,#F2C94C);">
+    <div class="container d-flex flex-column justify-content-space-around" style="height: 100vh;">
+        <h2 class="title mt-5 mb-5" style="text-align: center;">
+            Find Our City
+        </h2>
+
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d502964.51011673885!2d76.02072684606838!3d9.98293140660332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d514abec6bf%3A0xbd582caa5844192!2sKochi%2C%20Kerala!5e0!3m2!1sen!2sin!4v1650826551429!5m2!1sen!2sin"
+            width="600" height="450" style="border:0;margin-left:20vw" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    </div>
+</section>
+
+<footer class="bg-dark text-light d-flex flex-column justify-content-space-around" style="height: 30vh;">
+    <h2 class="title mt-5 mb-5" style="text-align: center;">
+        Contact us via
+    </h2>
+    <div class="icon-group d-flex justify-content-center">
+        <style>
+            i {
+                font-size: 30px;
+            }
+        </style>
+        <i class="fa-brands fa-twitter me-3"></i>
+        <i class="fa-brands fa-facebook me-3"></i>
+        <i class="fa-brands fa-instagram"></i>
+    </div>
+</footer>

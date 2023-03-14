@@ -1,0 +1,30 @@
+<link rel='stylesheet' href='/stylesheets/user.css' />
+<style>
+    body {
+        background: linear-gradient(90deg, #bdc3c7, #2c3e50);
+    }
+</style>
+
+<div class="login-page">
+    <div class="form">
+        <div>
+            <h2 class="title" style="color: #2c3e50;">Edit Hospital Details</h2>
+        </div>
+        <form class="login-form" action="/admin/edit-hospital/{{hospital._id}}" method="post"
+            enctype="multipart/form-data">
+            <input type="text" name="hospitalName" placeholder="Hospital Name" value="{{hospital.hospitalName}}"
+                required />
+            <textarea name="description" placeholder="Short description about hospital" id="" cols="10"
+                rows="5"> {{hospital.description}}"</textarea>
+            <input type="text" name="place" placeholder="place" value="{{hospital.place}}" required />
+            <input type="text" name="phone" placeholder="Phone No" value="{{hospital.phone}}" required />
+            <input type="email" name="email" placeholder="Email Id" value="{{hospital.email}}" required />
+            <label for="">Update hospital Image</label>
+            <img src="/images/hospital/{{hospital._id}}.jpg" width="100" height="100" alt="">
+            <input type="file" accept="" name="image">
+
+            <button type="submit" style="background: #00c3ff;">SUBMIT</button>
+            <a href="/admin" class="font-weight-bold" style="text-decoration: none;">Back</a>
+        </form>
+    </div>
+</div>

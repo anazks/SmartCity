@@ -1,0 +1,46 @@
+<link rel='stylesheet' href='/stylesheets/user.css' />
+<style>
+    body {
+        background: linear-gradient(90deg, #bdc3c7, #2c3e50);
+    }
+</style>
+
+<div class="login-page" style="width: 80vw">
+    <div class="form">
+        <div style="display: flex;justify-content: space-between;">
+            <span></span>
+            <h2 class="title" style="color: #2c3e50;"> Theaters List</h2>
+            <a href="/admin/add-theater"><button> Add New theater</button></a>
+        </div>
+        <table id="main_table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Place</th>
+                    <th>operations</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each theaters}}
+                <tr>
+                    <td>{{theaterName}}</td>
+                    <td>{{email}}</td>
+                    <td>{{place}}</td>
+                    <td><a href="/admin/delete-theater/{{_id}}"
+                            onclick="return confirm('Are you sure you want to delete this theater?');"><button
+                                class="btn" style="background: red;">delete</button></a>
+                        <a href="/admin/edit-theater/{{_id}}"><button class="btn"
+                                style="background: rgb(67, 199, 67);">Edit</button></a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    $(function () {
+        $("#main_table").dataTable();
+    });
+</script>

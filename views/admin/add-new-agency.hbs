@@ -1,0 +1,29 @@
+<link rel='stylesheet' href='/stylesheets/user.css' />
+<style>
+    body {
+        background: linear-gradient(90deg, #bdc3c7, #2c3e50);
+    }
+</style>
+
+<div class="login-page">
+    <div class="form">
+        <div>
+            <h2 class="title" style="color: #2c3e50;">Add New Hotel</h2>
+        </div>
+        <form class="login-form" action="/admin/add-hotel" method="post" enctype="multipart/form-data">
+            <input type="text" name="hotelName" placeholder="Hotel Name" required />
+            <textarea name="description" placeholder="Short description about hotel" id="" cols="10"
+                rows="5"></textarea>
+            <input type="text" name="place" placeholder="place" required />
+            <input type="number" name="phone" placeholder="Phone No" required />
+            <input type="email" name="email" placeholder="Email Id" required />
+
+            <input type="number" name="minPrice" placeholder="Minimum price" required />
+            <label for="">Upload Hotel Image</label>
+            <input type="file" accept="" name="image">
+
+            <button type="submit" style="background: #00c3ff;">SUBMIT</button>
+            <a href="/admin" class="font-weight-bold" style="text-decoration: none;">Back</a>
+        </form>
+    </div>
+</div>

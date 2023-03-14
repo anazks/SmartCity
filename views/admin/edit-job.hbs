@@ -1,0 +1,29 @@
+<link rel='stylesheet' href='/stylesheets/user.css' />
+<style>
+    body {
+        background: linear-gradient(90deg, #bdc3c7, #2c3e50);
+    }
+</style>
+
+<div class="login-page" style="width: 80vw;">
+    <div class="form">
+        <div>
+            <h2 class="title" style="color: #2c3e50;">Edit Job Details</h2>
+        </div>
+        <form class="login-form" action="/admin/edit-job/{{job._id}}" method="post" enctype="multipart/form-data">
+            <input type="text" name="jobName" placeholder="job Name" value="{{job.jobName}}" required />
+            <textarea name="description" placeholder="Short description about job" id="" cols="10" rows="5"
+                required> {{job.description}}"</textarea>
+            <input type="text" name="companyName" placeholder="Name of the Company" value="{{job.companyName}}"
+                required />
+            <input type="text" name="salary" placeholder="salary (per annum)" value="{{job.salary}}" required />
+            <input type="text" name="vacancy" placeholder="vacancies" value="{{job.vacancy}}" required />
+            <input type="text" name="place" placeholder="place" value="{{job.place}}" required />
+            <input type="text" name="phone" placeholder="Phone No" value="{{job.phone}}" required />
+            <input type="email" name="email" placeholder="Email Id" value="{{job.email}}" required />
+
+            <button type="submit" style="background: #00c3ff;">SUBMIT</button>
+            <a href="/admin/view-all-jobs" class="font-weight-bold" style="text-decoration: none;">Back</a>
+        </form>
+    </div>
+</div>
