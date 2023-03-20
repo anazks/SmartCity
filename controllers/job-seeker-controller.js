@@ -99,7 +99,7 @@ const applyJob = async(req,res)=>{
 const logout = (req, res) => {
     req.session.jobSeeker = null;
     req.session.alertMessage = "Logged Out Successfully!!!"
-    res.redirect("/job-seeker")
+    res.redirect("/")
 }
 const searchJob = async (req, res) => {
     let jobs = await JobModel.find({})
