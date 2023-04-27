@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <link rel='stylesheet' href='/stylesheets/user.css' />
+<style>
+    body {
+        background: linear-gradient(90deg, #bdc3c7, #2c3e50);
+    }
+</style>
+
+<div class="login-page" style="width: 80vw">
+    <div class="form">
+        <h2 class="title" style="color: #2c3e50;"> Tourist Place List</h2>
+        <a href="/admin/get-Tourist-add-page" class="btn btn-success">ADD PLACES</a>
+        <table id="main_table">
+            <thead>
+                <tr>
+                    <th>Place</th>
+                    <th>Price</th>
+                    <th>Phone</th>
+                    <th>Guid Name Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each touris}}
+                <tr>
+                    <td>{{place}}</td>
+                    <td>{{Price}}</td>
+                    <td>{{phone}}</td>
+                    <td>{{guidName}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    $(function () {
+        $("#main_table").dataTable();
+    });
+</script>
+</body>
+</html>

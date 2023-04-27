@@ -4,6 +4,7 @@ const LibraryModel = require("../models/library-model");
 const CollegeModel = require("../models/college-model");
 const HospitalModel = require("../models/hospital-model");
 let nodemailer = require('nodemailer');
+const studentModel = require("../models/student-model");
 
 
 const getSignupPage = (req, res) => {
@@ -71,6 +72,9 @@ const logout = (req, res) => {
     req.session.alertMessage = "Logged Out Successfully!!!"
     res.redirect("/")
 }
+const getpage = (req,res)=>{
+    res.render('student/for-got-password')
+}
 const searchLibrary = async (req, res) => {
     let libraries = await LibraryModel.find({})
     if (libraries.length == 0) { libraries = false; }
@@ -86,6 +90,27 @@ const searchHosptals = async (req, res) => {
     let hospitals = await HospitalModel.find({})
     if (hospitals.length == 0) { hospitals = false; }
     res.render("student/view-hospitals", { hospitals })
+}
+const forgotpassword= async(req,res)=>{
+    let {email} = req.body;
+    let {password} = req.body;
+   try {
+        let user = await studentModel.find({email:email});
+        if(user.length>0){
+            console.log(user,"----------")
+            let userID = user[0]._id;
+            console.log(userID)
+            newpasswords = await bcrypt.hash(password, 10); 
+            let newPasswordUpdate = await studentModel.findOneAndUpdate({ _id: userID }, {$set :{password:newpasswords}})
+            let alert = "Password changer successfully!!.."
+            res.render('student/for-got-password',{alert})
+        }else{
+            let alert = "Wrong Email"
+            res.render('student/for-got-password',{alert})
+        }
+   } catch (error) {
+            console.log(error)
+   }
 }
 const searchByCategory = async (req, res) => {
     console.log(req.body)
@@ -119,4 +144,4 @@ const searchByCategory = async (req, res) => {
 
 
 
-module.exports = { searchByCategory, getSignupPage, doSignup, getLoginPage, doLogin, getHomePage, logout, searchLibrary, searchColleges, searchHosptals }
+module.exports = { searchByCategory,forgotpassword, getpage,getSignupPage, doSignup, getLoginPage, doLogin, getHomePage, logout, searchLibrary, searchColleges, searchHosptals }

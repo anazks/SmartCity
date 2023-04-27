@@ -70,13 +70,23 @@ const adminDashboard = async (req, res) => {
 const adminLogout = async (req, res) => {
     delete req.session.admin;
     req.session.alertMessage = "Logged out successfully";
-    res.redirect('/admin/login')
+    res.redirect('/')
 }
 
 const viewAllStudents = async (req, res) => {
     try {
         const students = await StudentModel.find({})
         res.render("admin/view-all-students", { students })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+const viewAllTouristplaces = async (req, res) => {
+    try {
+        const touris = await touristModel.find({})
+        res.render("admin/view-all-touristPlaces", { touris })
     } catch (error) {
         console.log(error)
     }
@@ -641,5 +651,6 @@ module.exports = {
     editTravelAgency,
     viewAllStudents,
     viewAllJobSeekers,
-    viewAllTourists
+    viewAllTourists,
+    viewAllTouristplaces
 }

@@ -101,6 +101,9 @@ const logout = (req, res) => {
     req.session.alertMessage = "Logged Out Successfully!!!"
     res.redirect("/")
 }
+const getpage = (req,res)=>{
+    res.render('job-seeker/for-got-password')
+}
 const searchJob = async (req, res) => {
     let jobs = await JobModel.find({})
     if (jobs.length == 0) { jobs = false; }
@@ -120,6 +123,27 @@ const searchHotels = async (req, res) => {
     let hotels = await HotelModel.find({})
     if (hotels.length == 0) { hotels = false; }
     res.render("job-seeker/view-hotels", { hotels })
+}
+const forgotpassword = async (req,res)=>{
+    let {email} = req.body;
+    let {password} = req.body;
+   try {
+        let user = await jobSeekerModel.find({email:email});
+        if(user.length>0){
+            console.log(user,"----------")
+            let userID = user[0]._id;
+            console.log(userID)
+            newpasswords = await bcrypt.hash(password, 10); 
+            let newPasswordUpdate = await jobSeekerModel.findOneAndUpdate({ _id: userID }, {$set :{password:newpasswords}})
+            let alert = "Password changer successfully!!.."
+            res.render('job-seeker/for-got-password',{alert})
+        }else{
+            let alert = "Wrong Email"
+            res.render('job-seeker/for-got-password',{alert})
+        }
+   } catch (error) {
+            console.log(error)
+   }
 }
 const searchByCategory = async (req, res) => {
     console.log(req.body)
@@ -159,4 +183,4 @@ const searchByCategory = async (req, res) => {
 
 
 
-module.exports = { searchByCategory, getSignupPage,applyJob, doSignup, getLoginPage, doLogin, getHomePage, logout, searchJob, searchHospital, searchIndustry, searchHotels }
+module.exports = { searchByCategory,forgotpassword, getpage,getSignupPage,applyJob, doSignup, getLoginPage, doLogin, getHomePage, logout, searchJob, searchHospital, searchIndustry, searchHotels }

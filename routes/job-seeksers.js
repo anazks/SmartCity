@@ -3,7 +3,7 @@ var router = express.Router();
 
 
 //controllers
-const { searchByCategory, applyJob,getSignupPage, doSignup, getLoginPage, doLogin, getHomePage, logout, searchJob, searchHospital, searchIndustry, searchHotels } = require("../controllers/job-seeker-controller")
+const { searchByCategory,getpage,forgotpassword, applyJob,getSignupPage, doSignup, getLoginPage, doLogin, getHomePage, logout, searchJob, searchHospital, searchIndustry, searchHotels } = require("../controllers/job-seeker-controller")
 const checkJobSeeker = require('../middleware/checkJobSeeker')
 
 router.route('/').get(checkJobSeeker, getHomePage);
@@ -16,6 +16,8 @@ router.route('/search-industries').get(checkJobSeeker, searchIndustry);
 router.route('/search-hotels').get(checkJobSeeker, searchHotels);
 router.route('/search').post(checkJobSeeker, searchByCategory);
 router.route('/applyJob/:mail').get(checkJobSeeker,applyJob)
+router.route('/getpage').get(getpage)
+router.route('/forgotpassword').post(forgotpassword)
 // router.get('/applyJob/:mail',(req,res)=>{
 //     console.log(req.params);
 // })

@@ -5,6 +5,7 @@ const HotelModel = require("../models/hotel-model")
 const TheaterModel = require("../models/theater-model")
 const LibraryModel = require("../models/library-model");
 const touristPlaceModel = require("../models/touristModel");
+const touristModel = require("../models/tourist-model");
 
 
 
@@ -80,6 +81,14 @@ const getHomePage = function (req, res, next) {
         delete req.session.alertMessage;
     }
 }
+
+const forGotPage = function (req, res, next) {
+        try {
+                res.render('tourist/for-got-password')
+        } catch (error) {
+            console.log(error)  
+        }
+}
 //logout
 const logout = (req, res) => {
     req.session.tourist = null;
@@ -105,6 +114,27 @@ const searchLibrary = async (req, res) => {
     let libraries = await LibraryModel.find({})
     if (libraries.length == 0) { libraries = false; }
     res.render("tourist/view-libraries", { libraries })
+}
+ const newPassword = async (req, res) => {
+    let {email} = req.body;
+    let {password} = req.body;
+   try {
+        let user = await touristModel.find({email:email});
+        if(user.length>0){
+            console.log(user,"----------")
+            let userID = user[0]._id;
+            console.log(userID)
+            newpasswords = await bcrypt.hash(password, 10); 
+            let newPasswordUpdate = await touristModel.findOneAndUpdate({ _id: userID }, {$set :{password:newpasswords}})
+            let alert = "Password changer successfully!!.."
+            res.render('tourist/for-got-password',{alert})
+        }else{
+            let alert = "Wrong Email"
+            res.render('tourist/for-got-password',{alert})
+        }
+   } catch (error) {
+            console.log(error)
+   }
 }
 const searchByCategory = async (req, res) => {
     console.log(req.body)
@@ -143,4 +173,4 @@ const searchByCategory = async (req, res) => {
 
 
 
-module.exports = { searchByCategory,getplace, getSignupPage, doSignup, getLoginPage, doLogin, getHomePage, logout, searchHotel, searchHospital, searchTheater, searchLibrary }
+module.exports = { forGotPage,newPassword,searchByCategory,getplace, getSignupPage, doSignup, getLoginPage, doLogin, getHomePage, logout, searchHotel, searchHospital, searchTheater, searchLibrary }

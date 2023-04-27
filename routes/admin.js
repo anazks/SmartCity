@@ -4,7 +4,7 @@ const {
     adminLoginPage,
     adminLogin,
     adminDashboard,
-
+    viewAllTouristplaces,
     addHotelForm,
     addNewHotel,
     viewAllHotel,
@@ -113,5 +113,5 @@ router.route('/add-theater').get(checkAdmin, addTheaterForm).post(checkAdmin, ad
 router.route('/view-all-theaters').get(checkAdmin, viewAllTheaters);
 router.route('/delete-theater/:id').get(checkAdmin, deleteTheater)
 router.route('/edit-theater/:id').get(checkAdmin, editTheaterForm).post(checkAdmin, editTheater);
-
+router.get('/getPlace', checkAdmin,viewAllTouristplaces)
 module.exports = router;

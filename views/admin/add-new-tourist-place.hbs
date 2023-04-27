@@ -13,7 +13,7 @@
         <form class="login-form" action="/admin/add-tourist" method="post" enctype="multipart/form-data">
             <input type="text" name="place" placeholder="Location Name" required />
             <input type="text" name="Price" placeholder="Price per head" required />
-            <input type="number" name="phone" placeholder="guid Phone No" required />
+            <input type="number" name="phone" placeholder="guid Phone No"  pattern="[0-9]{10}" required />
             <input type="text" name="guidName" placeholder="Guid name" required />
             <label for="">Upload College Image</label>
             <input type="file" accept="" name="image" required>
