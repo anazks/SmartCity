@@ -91,7 +91,7 @@ const applyJob = async(req,res)=>{
           console.log(err)
         }else{
           console.log("emailsent Succecfully")
-          res.redirect('/')
+          res.redirect('/job-seeker')
         }
       })
 }
