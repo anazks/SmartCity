@@ -1,5 +1,6 @@
 var express = require('express');
 const router = express.Router()
+let Docsmodel = require("../models/docsModel")
 const {
     adminLoginPage,
     adminLogin,
@@ -62,12 +63,49 @@ const {
     viewAllJobSeekers,
     viewAllTourists,
     addTourist,
-    getTourist
+    getTourist,
+    addDocs
 
 } = require("../controllers/admin-controller");
-const checkAdmin = require("../middleware/checkAdmin")
+const checkAdmin = require("../middleware/checkAdmin");
+const docsModel = require('../models/docsModel');
 
 /* GET users listing. */
+router.get("/addDocs",(req,res)=>{
+    try {
+        res.render("admin/add-new-docs")
+    } catch (error) {
+        console.log(error)
+    }
+})
+router.post('/addDocs',async(req,res)=>{
+    try {
+        console.log(req.body,req.files,req.body)
+        let docid = await Docsmodel.create(req.body)
+        let docsId = docid._id
+        let docName = req.files.doc;
+        let uploadPath = "./public/docs/"+ docsId  + ".pdf"
+        docName.mv(uploadPath,(err,row)=>{
+                if(!err) res.redirect("/admin/addDocs")
+                else{
+                        res.status(400);
+                        res.redirect("/admin/addDocs")
+                  }
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(400).send("Error while uploading docs")
+    }
+})
+
+router.get("/getDoc",async(req,res)=>{
+    try {
+        let docs = await docsModel.find({})
+        res.render("admin/get-docs",{docs})
+    } catch (error) {
+        console.log(error)
+    }
+})
 router.route('/login').get(adminLoginPage).post(adminLogin);
 router.route('/logout').get(adminLogout);
 router.route('/').get(checkAdmin, adminDashboard);

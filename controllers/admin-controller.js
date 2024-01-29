@@ -591,9 +591,16 @@ const editTravelAgency = async (req, res) => {
     res.send("route is live")
 }
 
-
+const addDocs =(req,res)=>{
+    try {
+                res.render("admin/addDocs")
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 module.exports = {
+    addDocs,
     getTourist,
     addTourist,
     adminLoginPage,

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        
+        .docs{
+            width: 50%;
+            height: 200px;
+            margin: auto;
+            border: 1px solid black;
+            margin-top: 10px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            display: flex;
+            padding: 10px;
+            display: flex;
+           
+        }
+        .navBar{
+            width: 90%;
+            height: 80px;
+            background-color: rgb(115, 207, 225);
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;
+            margin: auto;
+            margin-top: 10px;
+            border-radius: 20px;
+            justify-content: ;
+        }
+        .docsBox{
+            width: 40%;
+            height: 90%;
+            padding: 20px;
+        }
+        .pdfbox{
+            
+            font-size: 100px;
+        }
+    </style>
+</head>
+<div class="navBar">
+
+</div>
+<body>
+    <h2 style="text-align: center;">Maeteral sheared</h2>
+     {{#each docs}}  
+    <div class="docs">
+        <div class="docsBox pdfbox">
+
+            <i class="bi bi-file-earmark-pdf text-danger"></i>
+        </div>
+        <div class="docsBox">
+                {{!-- <iframe src="/docs/{{_id}}.pdf" frameborder="0"></iframe> --}}
+                <p>{{description}}</p>
+                <p>{{subject}}</p>
+             <a href="/docs/{{_id}}.pdf" class="btn btn-info btn-sm " download="Materials">Click to download</a>
+
+        </div>
+
+    </div>
+      {{/each}}
+</body>
+</html>
